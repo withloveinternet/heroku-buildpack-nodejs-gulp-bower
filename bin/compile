@@ -75,6 +75,18 @@ elif test -d $cache_dir/node/node_modules; then
 
 fi
 
+# Check and run bower
+(
+  if [ -f $build_dir/bower.json ]; then
+    # Install bower locally
+    npm install bower
+    status "-----> Found bower.json, running bower install"
+    $build_dir/node_modules/.bin/bower install
+  else
+    status "-----> No bower.json found"
+  fi
+)
+
 # Scope config var availability only to `npm install`
 (
   if [ -d "$env_dir" ]; then
@@ -131,18 +143,6 @@ fi
 status "Building runtime environment"
 mkdir -p $build_dir/.profile.d
 echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
-
-# Check and run bower
-(
-  if [ -f $build_dir/bower.json ]; then
-    # Install bower locally
-    npm install bower
-    status "-----> Found bower.json, running bower install"
-    $build_dir/node_modules/.bin/bower install
-  else
-    status "-----> No bower.json found"
-  fi
-)
 
 # Check and run gulp
 (
