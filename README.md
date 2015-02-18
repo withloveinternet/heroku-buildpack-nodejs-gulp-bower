@@ -10,8 +10,11 @@ heroku config:set BUILDPACK_URL=https://github.com/artmees/heroku-buildpack-node
 - Run `heroku config:set NODE_ENV={{env}}` to set your environment to the desired environment. 
   ex `production` or `staging`
 
--  Add a Gulp task called for each enviroment you support `heroku:{{env}}` that builds your app.
-  ex `heroku:production` or `heroku:staging`
+- Run `heroku config:set NPM_CONFIG_PRODUCTION=false` as mentioned in [docs](https://devcenter.heroku.com/articles/nodejs-support#customizing-the-build-process) to allow heroku to install  `devDependencies` as well as `dependencies`
+
+-  Add a Gulp tasks called for each enviroment you support `heroku:{{env}}` that builds your app.
+  ex `heroku:production` and `heroku:staging` if `NODE_ENV` is set to `production` and `staging` respectively.
+
 
 Credits
 -------
