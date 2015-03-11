@@ -30,8 +30,7 @@ Setup
 
 Credits
 -------
+* Thanks to [artmees](https://github.com/artmees) for getting things environment-sensitive.
 * Forked from [heroku-buildpack-nodejs](https://github.com/heroku/heroku-buildpack-nodejs).
-* Thanks to [@artmees] for getting things environment-sensitive.
-* Forked from [krry](https://github.com/krry/heroku-buildpack-nodejs-gulp-bower) awesome build pack.
 * Incorporated bower check and install from [heroku-buildpack-nodejs-gulp-bower](https://github.com/davidmfoley/heroku-buildpack-nodejs-gulp-bower)
 * Heavily based on [heroku-buildpack-nodejs-grunt](https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt).
