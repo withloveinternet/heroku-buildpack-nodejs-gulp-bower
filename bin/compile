@@ -21,7 +21,7 @@ trap cat_npm_debug_log ERR
 # semver_range=$(cat $build_dir/package.json | $bp_dir/vendor/jq -r .engines.node)
 
 ### get node version from environment variable
-node_version=$PROJECT_NODE_VERSION
+node_version=PROJECT_NODE_VERSION
 
 # Resolve node version using semver.io
 # node_version=$(curl --silent --get --data-urlencode "range=${semver_range}" https://semver.io/node/resolve)
@@ -47,6 +47,7 @@ node_version=$PROJECT_NODE_VERSION
 # Download node from Heroku's S3 mirror of nodejs.org/dist
 status "Downloading and installing node"
 node_url="https://nodejs.org/dist/v$node_version/node-v$node_version-linux-x64.tar.gz"
+echo $node_url
 curl $node_url -s -o - | tar xzf - -C $build_dir
 
 # Move node (and npm) into ./vendor and make them executable
