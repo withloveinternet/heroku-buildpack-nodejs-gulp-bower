@@ -18,7 +18,7 @@ source $bp_dir/bin/common.sh
 trap cat_npm_debug_log ERR
 
 # Look in package.json's engines.node field for a semver range
-semver_range=$(cat $build_dir/package.json | $bp_dir/vendor/jq -r .engines.node)
+# semver_range=$(cat $build_dir/package.json | $bp_dir/vendor/jq -r .engines.node)
 
 ### get node version from environment variable
 node_version=$PROJECT_NODE_VERSION
